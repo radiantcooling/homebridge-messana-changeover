@@ -58,7 +58,13 @@ ThermostatChangeover.prototype = {
         this.log("[!] Error getting System State: %s", error.message);
         callback(error);
       } else {
-        var json = JSON.parse(responseBody);
+        try{
+          var json = JSON.parse(responseBody);
+        }
+        catch(err){
+          callback(-1);
+          return
+        }
         this.onSystem = (json.status == 0)? false : true
         if(!this.onSystem) {
           this.modeHC = 0
@@ -71,7 +77,13 @@ ThermostatChangeover.prototype = {
               this.log("[!] Error getting getMode: %s", error.message);
               callback(error);
             } else {
-              var json = JSON.parse(responseBody);
+              try{
+                var json = JSON.parse(responseBody);
+              }
+              catch(err){
+                callback(-1);
+                return
+              }
               this.targetHeatingCoolingState = this.modeHC = json.value;
               callback(null, this.modeHC);
             }
@@ -111,7 +123,13 @@ ThermostatChangeover.prototype = {
         this.log("[!] Error getting currentTemperature: %s", error.message);
         callback(error);
       } else {
-        var json = JSON.parse(responseBody);
+        try{
+          var json = JSON.parse(responseBody);
+        }
+        catch(err){
+          callback(-1);
+          return
+        }
         this.currentTemperature = parseFloat(json.value);
         this.currentTemperature = util.convertF2C(this.currentTemperature, this.temperatureDisplayUnits)
         callback(null, this.currentTemperature.toFixed(2));
@@ -127,7 +145,13 @@ ThermostatChangeover.prototype = {
         this.log("[!] Error getting currentTemperature: %s", error.message);
         callback(error);
       } else {
-        var json = JSON.parse(responseBody);
+        try{
+          var json = JSON.parse(responseBody);
+        }
+        catch(err){
+          callback(-1);
+          return
+        }
         this.targetTemperature = parseFloat(json.value);
 
         this.targetTemperature = util.convertF2C(this.targetTemperature, this.temperatureDisplayUnits)
@@ -275,7 +299,13 @@ SwitchAC.prototype = {
         this.log("[!] Error getting System State: %s", error.message);
         callback(error);
       } else {
-        var json = JSON.parse(responseBody);
+        try{
+          var json = JSON.parse(responseBody);
+        }
+        catch(err){
+          callback(-1);
+          return
+        }
         this.onSystem = (json.status == 0)? false : true
         if(!this.onSystem) {
           this.modeHC = 0
@@ -289,7 +319,13 @@ SwitchAC.prototype = {
               this.log("[!] Error getting getAC: %s", error.message);
               callback(error);
             } else {
-              var json = JSON.parse(responseBody);
+              try{
+                var json = JSON.parse(responseBody);
+              }
+              catch(err){
+                callback(-1);
+                return
+              }
               this.on = (json.status == 0)? false : true
               callback(null, this.on);
             }

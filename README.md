@@ -1,2 +1,2 @@
 # homebridge-messana-changeover
-Homebridge's plugin for messana changeover element
+Plugin to install the following accessories: ThermostatChangeover, SwitchAC

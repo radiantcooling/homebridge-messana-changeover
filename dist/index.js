@@ -84,7 +84,7 @@ ThermostatChangeover.prototype = {
                 callback(-1);
                 return
               }
-              this.targetHeatingCoolingState = this.modeHC = json.value;
+              this.targetHeatingCoolingState = this.modeHC = json.value+1;
               callback(null, this.modeHC);
             }
           }.bind(this));

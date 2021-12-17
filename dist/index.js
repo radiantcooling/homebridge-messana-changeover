@@ -1,5 +1,3 @@
-
-
 var Service, Characteristic;
 var request = require("request");
 const defaultJSON = require('./../default.json')
@@ -284,6 +282,7 @@ function SwitchAC(log, config, api) {
   this.apiroute = util.staticValues.apiroute
   this.on = false
   this.service = new Service.Switch(this.name)
+  this.enablesetAC = false
 }
 
 SwitchAC.prototype = {
@@ -337,6 +336,7 @@ SwitchAC.prototype = {
   },
 
   setAC: function(value, callback) {
+    if(!this.enablesetAC) return;
     // this.log("[+] setAC from:", this.apiroute + defaultJSON.hc.apis.setAC + "?apikey=" + this.apikey);
     var url = this.apiroute + defaultJSON.hc.apis.setAC + "?apikey=" + this.apikey;
     var body = {
@@ -382,6 +382,10 @@ SwitchAC.prototype = {
       }.bind(this));
 
     }.bind(this), defaultJSON.refreshHC * 1000);
+
+    setTimeout(function() {
+      this.enablesetAC = true;
+      }.bind(this), 500);
 
     return [this.informationService, this.service];
   }

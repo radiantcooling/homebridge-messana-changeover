@@ -41,9 +41,10 @@ ThermostatChangeover.prototype = {
     // this.log("[+] getCurrentHeatingCoolingState from:", this.apiroute + "/status");
     var url = this.apiroute + "/status";
     var json = {
-      targetHeatingCoolingState: 0
+      currentHeatingCoolingState: 0
     }
     // this.log("[*] targetHeatingCoolingState: %s", json.currentHeatingCoolingState);
+
     this.currentHeatingCoolingState = json.currentHeatingCoolingState;
     callback(null, this.currentHeatingCoolingState);
   },

@@ -1,59 +1,35 @@
 {
-  "_from": "homebridge-messana-changeover@latest",
-  "_id": "homebridge-messana-changeover@1.1.0",
-  "_inBundle": false,
-  "_integrity": "sha512-dlriEw1vaJd6VjEFJ074wSkolV7q6U8ov0g11Zdi5usCV4Cis33GAiV44bXr58H0CDiuP/EEnvnsLUhQ/BvAVg==",
-  "_location": "/homebridge-messana-changeover",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "homebridge-messana-changeover@latest",
+    "private": false,
+    "displayName": "Messana Changeover",
     "name": "homebridge-messana-changeover",
-    "escapedName": "homebridge-messana-changeover",
-    "rawSpec": "latest",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/homebridge-messana-changeover/-/homebridge-messana-changeover-1.1.0.tgz",
-  "_shasum": "409389b0426ea8271161ee5cad5ef7e540f765fa",
-  "_spec": "homebridge-messana-changeover@latest",
-  "_where": "/",
-  "bugs": {
-    "url": "https://github.com/radiantcooling/homebridge-messana-changeover/issues"
-  },
-  "bundleDependencies": false,
-  "dependencies": {},
-  "deprecated": false,
-  "description": "Plugin to install the following accessories: ThermostatChangeover, SwitchAC",
-  "devDependencies": {
-    "homebridge": "^1.1.1"
-  },
-  "displayName": "Messana Changeover",
-  "engines": {
-    "homebridge": ">0.4.53",
-    "node": ">=10.17.0"
-  },
-  "homepage": "https://github.com/radiantcooling/homebridge-messana-changeover#readme",
-  "keywords": [
-    "homebridge-plugin"
-  ],
-  "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "models": [
-    "ThermostatChangeover",
-    "SwitchAC"
-  ],
-  "name": "homebridge-messana-changeover",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/radiantcooling/homebridge-messana-changeover.git"
-  },
-  "scripts": {},
-  "version": "1.1.0"
-}
+    "homepage": "https://github.com/radiantcooling/homebridge-messana-changeover#readme",
+    "version": "1.1.1",
+    "description": "Plugin to install the following accessories: ThermostatChangeover, SwitchAC",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/radiantcooling/homebridge-messana-changeover.git"
+    },
+    "bugs": {
+        "url": "https://github.com/radiantcooling/homebridge-messana-changeover/issues"
+      },
+      "engines": {
+        "homebridge": ">0.4.53",
+        "node": ">=10.17.0"
+      },
+      "main": "dist/index.js",
+    "scripts": {},
+    "keywords": [
+        "homebridge-plugin"
+      ],
+    "dependencies": {},
+    
+    "devDependencies": {
+        "homebridge": "^1.1.1"
+    },
+    "models": [
+        "ThermostatChangeover",
+        "SwitchAC"
+      ]
+  
+  }

@@ -25,7 +25,9 @@ function ThermostatChangeover(log, config, api) {
   this.currentTemperature = 20;
   this.targetHeatingCoolingState = 3;
   this.heatingCoolingState = 1;
-  this.defaultTemp = 70
+  this.defaultTemp = 70;
+  this.maxTemp = 90;
+  this.minTemp = 60;
 
   this.service = new Service.Thermostat(this.name);
 }
@@ -41,9 +43,10 @@ ThermostatChangeover.prototype = {
     // this.log("[+] getCurrentHeatingCoolingState from:", this.apiroute + "/status");
     var url = this.apiroute + "/status";
     var json = {
-      targetHeatingCoolingState: 0
+      currentHeatingCoolingState: 1
     }
     // this.log("[*] targetHeatingCoolingState: %s", json.currentHeatingCoolingState);
+
     this.currentHeatingCoolingState = json.currentHeatingCoolingState;
     callback(null, this.currentHeatingCoolingState);
   },
@@ -65,7 +68,7 @@ ThermostatChangeover.prototype = {
         }
         this.onSystem = (json.status == 0)? false : true
         if(!this.onSystem) {
-          this.modeHC = 0
+          this.modeHC = 1
           callback(null, this.modeHC);
         }
         else {
@@ -246,8 +249,8 @@ ThermostatChangeover.prototype = {
 
       this.service.getCharacteristic(Characteristic.TargetTemperature)
         .setProps({
-          minValue: util.convertF2C(this.config.defaultTemp || this.defaultTemp, this.temperatureDisplayUnits),
-          maxValue: util.convertF2C(this.config.defaultTemp  || this.defaultTemp, this.temperatureDisplayUnits),
+          minValue: util.convertF2C(this.config.defaultTemp || this.minTemp , this.temperatureDisplayUnits),
+          maxValue: util.convertF2C(this.config.defaultTemp  || this.maxTemp, this.temperatureDisplayUnits),
         });
 
     setInterval(function() {

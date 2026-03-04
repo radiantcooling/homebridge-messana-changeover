@@ -7,8 +7,8 @@ const util = require('./../util.js')
 module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory("messana-changeover", "ThermostatChangeover", ThermostatChangeover);
-  homebridge.registerAccessory("messana-changeover", "SwitchAC", SwitchAC);
+  homebridge.registerAccessory("homebridge-messana-changeover", "ThermostatChangeover", ThermostatChangeover);
+  homebridge.registerAccessory("homebridge-messana-changeover", "SwitchAC", SwitchAC);
 };
 
 function ThermostatChangeover(log, config, api) {

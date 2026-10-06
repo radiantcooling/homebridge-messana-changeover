@@ -157,6 +157,7 @@ ThermostatChangeover.prototype = {
 
         this.targetTemperature = util.convertF2C(this.targetTemperature, this.temperatureDisplayUnits)
 
+        util.fitRange(this.service.getCharacteristic(Characteristic.TargetTemperature), this.targetTemperature);
         callback(null, this.targetTemperature.toFixed(1));
       }
     }.bind(this));

@@ -1,5 +1,4 @@
 var Service, Characteristic;
-var request = require("request");
 const defaultJSON = require('./../default.json')
 const packageJSON = require('./../package.json')
 const util = require('./../util.js')
